@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fff7f7">
+  <meta name="description" content="A quiet little corner of the internet.">
+  <title>Maybe I'm Stupid ♡</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&family=Italianno&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --red: #c92745;
+      --deep: #811d35;
+      --pink: #f5b9c5;
+      --soft: #fff1f3;
+      --ink: #542632;
+    }
+    * { box-sizing: border-box; }
+    html { min-height: 100%; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
+      display: grid;
+      place-items: center;
+      padding: 56px 18px 42px;
+      color: var(--ink);
+      background:
+        radial-gradient(ellipse at 12% 12%, rgba(255, 196, 207, .55), transparent 35%),
+        radial-gradient(ellipse at 88% 80%, rgba(255, 218, 225, .75), transparent 38%),
+        linear-gradient(135deg, #fffdfd 0%, #fff4f5 48%, #fffafa 100%);
+      font-family: "DM Sans", sans-serif;
+    }
+    .petals, .hearts {
+      position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 0;
+    }
+    .petal {
+      position: absolute; top: -12vh; width: 13px; height: 19px;
+      border-radius: 90% 10% 85% 15%;
+      background: linear-gradient(145deg, #ffd9e0, #e98da2);
+      opacity: .72;
+      filter: drop-shadow(0 2px 3px rgba(166, 43, 69, .12));
+      animation: fall linear infinite;
+    }
+    @keyframes fall {
+      0% { transform: translate3d(0,-10vh,0) rotate(0deg); }
+      50% { transform: translate3d(45px,55vh,0) rotate(210deg); }
+      100% { transform: translate3d(-25px,112vh,0) rotate(480deg); }
+    }
+    .heart {
+      position: absolute; bottom: -40px; color: #df6680;
+      font-size: 17px; opacity: 0; text-shadow: 0 3px 12px #f4b5c3;
+      animation: rise 8s ease-in infinite;
+    }
+    @keyframes rise {
+      0% { transform: translateY(0) scale(.65) rotate(-12deg); opacity: 0; }
+      15% { opacity: .65; }
+      85% { opacity: .45; }
+      100% { transform: translateY(-115vh) scale(1.25) rotate(18deg); opacity: 0; }
+    }
+    main {
+      position: relative; z-index: 1;
+      width: min(100%, 790px);
+      padding: clamp(30px, 7vw, 76px);
+      border: 1px solid rgba(201, 39, 69, .17);
+      border-radius: 30px;
+      background: rgba(255, 255, 255, .82);
+      box-shadow: 0 28px 90px rgba(160, 52, 77, .13), inset 0 0 0 7px rgba(255, 239, 242, .7);
+      backdrop-filter: blur(12px);
+      animation: cardIn 1.1s cubic-bezier(.2,.8,.2,1) both;
+    }
+    @keyframes cardIn {
+      from { opacity: 0; transform: translateY(24px) scale(.985); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .topline {
+      display: flex; align-items: center; justify-content: center; gap: 12px;
+      color: var(--red); font-size: 10px; font-weight: 600;
+      letter-spacing: .32em; text-transform: uppercase;
+    }
+    .topline:before, .topline:after {
+      content: ""; width: 32px; height: 1px; background: #e9a0af;
+    }
+    h1 {
+      margin: 25px 0 5px;
+      text-align: center; color: var(--deep);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(49px, 10vw, 88px); font-weight: 500;
+      line-height: .94; letter-spacing: -.045em;
+      animation: titleGlow 4s ease-in-out infinite;
+    }
+    @keyframes titleGlow {
+      0%,100% { text-shadow: 0 0 0 rgba(201,39,69,0); }
+      50% { text-shadow: 0 5px 24px rgba(201,39,69,.13); }
+    }
+    .subtitle {
+      text-align: center; margin: 15px 0 27px;
+      color: #bd7182; font-family: "Italianno", cursive; font-size: 31px;
+    }
+    .ornament {
+      display: flex; align-items: center; justify-content: center; gap: 13px;
+      margin: 0 auto 30px; color: var(--red); font-size: 18px;
+    }
+    .ornament:before, .ornament:after {
+      content: ""; width: min(20%, 105px); height: 1px;
+      background: linear-gradient(90deg, transparent, #e8a0af);
+    }
+    .ornament:after { transform: scaleX(-1); }
+    .story {
+      color: #653744; font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(19px, 2.5vw, 23px); font-weight: 500;
+      line-height: 1.78; text-align: left; letter-spacing: .005em;
+      opacity: 0; animation: textIn 1.25s .45s ease forwards;
+    }
+    @keyframes textIn { to { opacity: 1; } }
+    .bottom {
+      margin-top: 35px; display: flex; align-items: center; justify-content: center;
+      gap: 10px; color: #bd7182; font-size: 10px; letter-spacing: .22em;
+      text-transform: uppercase;
+    }
+    .bottom span { color: var(--red); font-size: 16px; animation: heartbeat 1.5s ease-in-out infinite; }
+    @keyframes heartbeat {
+      0%,100% { transform: scale(1); }
+      12% { transform: scale(1.22); }
+      24% { transform: scale(1); }
+      36% { transform: scale(1.16); }
+      48% { transform: scale(1); }
+    }
+    .corner {
+      position: absolute; color: #e9a0af; font-size: 27px; opacity: .7;
+    }
+    .tl { top: 18px; left: 22px; }
+    .tr { top: 18px; right: 22px; transform: scaleX(-1); }
+    .bl { bottom: 18px; left: 22px; transform: scaleY(-1); }
+    .br { bottom: 18px; right: 22px; transform: scale(-1); }
+    footer {
+      position: relative; z-index: 1; margin-top: 23px;
+      color: #bd8793; font-size: 10px; letter-spacing: .12em;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="petals" aria-hidden="true" id="petals"></div>
+  <div class="hearts" aria-hidden="true" id="hearts"></div>
+
+  <main>
+    <span class="corner tl">❀</span><span class="corner tr">❀</span>
+    <span class="corner bl">❀</span><span class="corner br">❀</span>
+    <div class="topline">a thought from within</div>
+    <h1>Maybe I'm<br>stupid.</h1>
+    <div class="subtitle">some feelings are difficult to name</div>
+    <div class="ornament">♡</div>
+    <p class="story">Yes I'm stupid... maybe more than you think. I'm stupid enough to feel things deeply even when I pretend nothing matters. I get attached to little things, remember words people forget, and find meaning in moments that probably meant nothing to anyone else. I overthink, I care silently, I hide what hurts me behind a smile, and sometimes I act like I don't need anyone when deep down I just wish someone would understand me without having to explain everything. I know I make mistakes, I trust too easily, and sometimes I give people more importance than they deserve. Maybe that's what makes me stupid. I have a thousand thoughts in my mind but barely know how to express even one of them. I can laugh with everyone and still feel like nobody really knows what's going on inside me. So yes, I'm stupid... not because I don't understand the world, but because even after everything, I still feel things that I wish I could simply stop caring about.</p>
+    <div class="bottom"><span>♥</span> some feelings are hard to explain <span>♥</span></div>
+  </main>
+  <footer>made of petals &amp; unspoken thoughts</footer>
+
+  <script>
+    const petals = document.getElementById('petals');
+    const hearts = document.getElementById('hearts');
+    for (let i = 0; i < 24; i++) {
+      const p = document.createElement('i');
+      p.className = 'petal';
+      p.style.left = (Math.random() * 100) + 'vw';
+      p.style.animationDuration = (9 + Math.random() * 13) + 's';
+      p.style.animationDelay = (-Math.random() * 20) + 's';
+      p.style.transform = `scale(${0.55 + Math.random() * 0.8})`;
+      petals.appendChild(p);
+    }
+    for (let i = 0; i < 11; i++) {
+      const h = document.createElement('i');
+      h.className = 'heart';
+      h.textContent = Math.random() > .5 ? '♡' : '♥';
+      h.style.left = (Math.random() * 100) + 'vw';
+      h.style.animationDuration = (7 + Math.random() * 8) + 's';
+      h.style.animationDelay = (-Math.random() * 14) + 's';
+      h.style.fontSize = (12 + Math.random() * 15) + 'px';
+      hearts.appendChild(h);
+    }
+  </script>
+</body>
+</html>
